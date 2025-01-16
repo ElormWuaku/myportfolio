@@ -1,144 +1,108 @@
 
-import  { useState } from 'react';
-// import ScrollAnimation from 'react-animate-on-scroll';
-import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
+import { Mail, Linkedin, Github, ExternalLink } from 'lucide-react';
 
 const Contact = () => {
- 
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
-
-    try {
-      await emailjs.send(
-        'service_vjh0nsr',
-        'template_gp866ob',
-        formData,
-        'TKi5tH-L-cktAPqfX'
-      );
-      setSubmitMessage('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      setSubmitMessage('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+  const socialLinks = [
+    {
+      name: 'LinkedIn',
+      icon: <Linkedin className="h-5 w-5" />,
+      href: '#', // Add your LinkedIn URL
+      description: 'Connect with me professionally'
+    },
+    {
+      name: 'GitHub',
+      icon: <Github className="h-5 w-5" />,
+      href: '#', // Add your GitHub URL
+      description: 'Check out my code repositories'
     }
-  };
+  ];
 
   return (
-    // <ScrollAnimation>
-      <section id="contact" className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-100 to-white text-gray-900 py-20">
-        <div className="w-full max-w-4xl px-4">
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Let&apos;s Connect
-          </motion.h2>
-          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 border border-gray-200">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <motion.div 
-                className="grid md:grid-cols-2 gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200"
-                    id="name"
-                    type="text"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200"
-                    id="email"
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <label className="block text-sm font-medium mb-2 text-gray-700" htmlFor="message">
-                  Message
-                </label>
-                <textarea
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200"
-                  id="message"
-                  rows="4"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </motion.div>
-              <motion.div 
-                className="flex justify-end"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <button
-                  className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </motion.div>
-            </form>
-            {submitMessage && (
-              <p className="mt-4 text-center text-green-600">{submitMessage}</p>
-            )}
-          </div>
-          <motion.div 
-            className="mt-12 text-center text-gray-600"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <p>Or reach out directly:</p>
-            <a href="mailto:hageelorm@gmail.com" className="text-gray-800 hover:text-black transition duration-300">hageelorm@gmail.com</a>
-          </motion.div>
+    <section className="min-h-screen py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Let&apos;s Connect</h2>
+          <p className="text-gray-600">I&apos;d love to hear from you! Choose your preferred way to reach out.</p>
         </div>
-      </section>
-    
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Direct Contact Card */}
+          <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+            <div className="mb-6">
+              <div className="flex items-center gap-2 text-xl font-semibold mb-2">
+                <Mail className="h-5 w-5" />
+                Direct Contact
+              </div>
+              <p className="text-gray-600 text-sm">
+                Send me an email directly
+              </p>
+            </div>
+            <div>
+              <a 
+                href="mailto:hageelorm@gmail.com"
+                className="inline-flex items-center justify-center w-full gap-2 px-4 py-2 text-sm font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors"
+              >
+                <Mail className="h-4 w-4" />
+                Email Me
+              </a>
+              <p className="mt-4 text-sm text-gray-600">
+                Or copy: hageelorm@gmail.com
+              </p>
+            </div>
+          </div>
+
+          {/* Social Links Card */}
+          <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold mb-2">Social Profiles</h3>
+              <p className="text-gray-600 text-sm">
+                Connect with me on other platforms
+              </p>
+            </div>
+            <div className="space-y-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                >
+                  {link.icon}
+                  <div className="flex-1">
+                    <h3 className="font-medium">{link.name}</h3>
+                    <p className="text-sm text-gray-600">{link.description}</p>
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-gray-400" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Contact Methods */}
+        <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 mt-6">
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">Schedule a Meeting</h3>
+            <p className="text-gray-600 text-sm">
+              Book a time that works best for you
+            </p>
+          </div>
+          <div className="space-y-4">
+            <p className="text-gray-600">
+              I&apos;m always open to scheduling virtual coffee chats or meetings to discuss potential collaborations, 
+              opportunities, or just to network.
+            </p>
+            <button 
+              className="w-full bg-black hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-md transition-colors"
+              onClick={() => window.open('https://calendly.com/hageelorm', '_blank')} // Calendar booking link
+            >
+              Schedule a Call
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

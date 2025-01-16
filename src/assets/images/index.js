@@ -7,5 +7,7 @@ import ghanaHype from "../images/ghanaHype.jpg"
 import inseecCert from "../images/inseecCert.jpg"
 import ibm from "../images/ibm.jpg"
 import UGF from "../images/UGF.jpg"
+import guadzefie from "../images/guadzefie.jpg"
+import berunice from "../images/berunice.jpg"
 
-export {eye, fashionBlog, heroBg, landingBg, furnish, ghanaHype, inseecCert, ibm, UGF}
+export {eye, fashionBlog, heroBg, landingBg, furnish, ghanaHype, inseecCert, ibm, UGF, guadzefie, berunice}
