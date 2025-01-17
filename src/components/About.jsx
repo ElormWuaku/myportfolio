@@ -68,7 +68,7 @@ const About = () => {
                   I&apos;m Doreen Wuaku, a Junior Frontend Developer with a unique blend of technical skills and marketing expertise. My journey in web development is driven by a passion for creating engaging digital experiences that not only look beautiful but also drive results.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  With a background in brand strategy and market research, I bring a holistic approach to development, ensuring that every project not only meets technical requirements but also achieves business objectives.
+                  With a background in Brand Strategy and Market Research, I bring a holistic approach to development, ensuring that every project not only meets technical requirements but also achieves business objectives.
                 </p>
               </div>
 
