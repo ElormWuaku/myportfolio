@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { heroBg } from '../assets/images';
 import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -10,6 +9,11 @@ const Hero = () => {
     { icon: FaEnvelope, href: "mailto:hageelorm@gmail.com", label: "Email" },
     { icon: FaPhone, href: "tel:+233246273377", label: "Phone" }
   ];
+
+  const handleProjectsClick = () => {
+    // Smooth scroll to projects section
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
@@ -54,19 +58,22 @@ const Hero = () => {
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <motion.button
+                  onClick={handleProjectsClick}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium"
                 >
                   View My Work
                 </motion.button>
-                <motion.button
+                <motion.a
+                  href="/public/DoreenWuakuCV.pdf" // Path to your CV
+                  download="DoreenWuakuCV.pdf" // CV path and filename
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 backdrop-blur-sm transition-colors duration-300"
                 >
-                  Contact Me
-                </motion.button>
+                  Download CV
+                </motion.a>
               </div>
             </div>
 

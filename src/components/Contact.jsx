@@ -6,13 +6,13 @@ const Contact = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin className="h-5 w-5" />,
-      href: '#', // Add your LinkedIn URL
+      href: 'https://www.linkedin.com/in/doreenlux-25992', // Add your LinkedIn URL
       description: 'Connect with me professionally'
     },
     {
       name: 'GitHub',
       icon: <Github className="h-5 w-5" />,
-      href: '#', // Add your GitHub URL
+      href: 'https://github.com/ElormWuaku', // Add your GitHub URL
       description: 'Check out my code repositories'
     }
   ];
@@ -77,28 +77,6 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Additional Contact Methods */}
-        <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 mt-6">
-          <div className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">Schedule a Meeting</h3>
-            <p className="text-gray-600 text-sm">
-              Book a time that works best for you
-            </p>
-          </div>
-          <div className="space-y-4">
-            <p className="text-gray-600">
-              I&apos;m always open to scheduling virtual coffee chats or meetings to discuss potential collaborations, 
-              opportunities, or just to network.
-            </p>
-            <button 
-              className="w-full bg-black hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-md transition-colors"
-              onClick={() => window.open('https://calendly.com/hageelorm', '_blank')} // Calendar booking link
-            >
-              Schedule a Call
-            </button>
           </div>
         </div>
       </div>
