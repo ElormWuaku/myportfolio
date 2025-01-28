@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { heroBg } from '../assets/images';
+import { headshot} from '../assets/images';
 import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
@@ -227,9 +227,9 @@ const Hero = () => {
                 transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
               />
               <img
-                src={heroBg}
+                src={headshot}
                 alt="Doreen Wuaku"
-                className="w-full h-auto rounded-2xl shadow-2xl"
+                className="w-full h-auto rounded-full shadow-2xl"
               />
               <motion.div 
                 className="absolute -right-4 -bottom-4 w-64 h-64 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl -z-10 opacity-50 blur-xl"

@@ -9,5 +9,6 @@ import ibm from "../images/ibm.jpg"
 import UGF from "../images/UGF.jpg"
 import guadzefie from "../images/guadzefie.jpg"
 import berunice from "../images/berunice.jpg"
+import headshot from "../images/headshot.jpg"
 
-export {eye, fashionBlog, heroBg, landingBg, furnish, ghanaHype, inseecCert, ibm, UGF, guadzefie, berunice}
+export {eye, fashionBlog, heroBg, landingBg, furnish, ghanaHype, inseecCert, ibm, UGF, guadzefie, berunice, headshot}
